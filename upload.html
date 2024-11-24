@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="javascript/dropFile.js" defer></script>
+    <title>uploadPage</title>
+</head>
+
+<header>
+    <h2 id="uploadHeadline">Upload your Video</h2>
+    <a href="index.html" >
+        <button id="btnBackToHomepage">Back to Homepage</button>
+    </a>   
+</header>
+
+<body>  
+    <div id="dropBox" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+    <p id="txtDropBox">Drop file here.</p>
+    </div>
+</body>
+</html>
