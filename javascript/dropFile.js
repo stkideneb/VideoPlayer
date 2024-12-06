@@ -1,3 +1,12 @@
+var mysql = require('mysql');
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Ka59tfD1AnE@',
+    database: 'db_file'
+});
+
+
 
 function dragOverHandler(event) {
  
@@ -20,6 +29,25 @@ function dropHandler(event) {
 
     document.getElementById("txtDropBox").textContent = `File: ${file.name}`;
     console.log("Dropped file:", file);
+    
+    connection.connect((err) => {
+        if (err) {
+            console.error('Error connecting to the database:', err.stack);
+            return;
+        }
+        console.log('Connected to the database.');
+    });
+    
+    const query = 'CALL proc_insertFile("test", "C:/Users/Zinte/Videos/chocolate_cake.mov");';
+
+    connection.query(query, (err, results) => {
+        if (err) {
+            console.error('Error executing query:', err.stack);
+            return;
+        }
+        console.log('Table created or already exists:', results);
+    });
+    connection.end;
 
 }
 
