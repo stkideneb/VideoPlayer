@@ -1,19 +1,6 @@
-var mysql = require('mysql');
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'Ka59tfD1AnE@',
-    database: 'db_file'
-});
-
-
-
 function dragOverHandler(event) {
- 
     event.preventDefault();
-
     document.getElementById("dropBox").style.backgroundColor = 'rgb(28, 28, 28)';
-    
 }
 
 function dropHandler(event) {
@@ -26,31 +13,32 @@ function dropHandler(event) {
     }
 
     const file = files[0];
+    const fileName = file.name;
+    const filePath = `C:/Users/Zinte/OneDrive/Desktop/Videos/${fileName}`;
 
-    document.getElementById("txtDropBox").textContent = `File: ${file.name}`;
-    console.log("Dropped file:", file);
-    
-    connection.connect((err) => {
-        if (err) {
-            console.error('Error connecting to the database:', err.stack);
-            return;
-        }
-        console.log('Connected to the database.');
+    const queryData = { fileName, filePath };
+
+    console.log('Sending data to server:', queryData);
+
+    // HTTP-Anfrage an den Server senden
+    fetch('http://localhost:3000/upload', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(queryData), // Sende die Daten im JSON-Format
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        alert('File uploaded successfully');
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Error uploading file');
     });
-    
-    const query = 'CALL proc_insertFile("test", "C:/Users/Zinte/Videos/chocolate_cake.mov");';
 
-    connection.query(query, (err, results) => {
-        if (err) {
-            console.error('Error executing query:', err.stack);
-            return;
-        }
-        console.log('Table created or already exists:', results);
+    document.getElementById("dropBox").addEventListener('dragleave', function() {
+        document.getElementById("dropBox").style.backgroundColor = 'rgb(23, 23, 23)';
     });
-    connection.end;
-
 }
-
-document.getElementById("dropBox").addEventListener('dragleave', function() {
-    document.getElementById("dropBox").style.backgroundColor = 'rgb(23, 23, 23)';
-});
