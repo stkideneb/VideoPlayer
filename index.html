@@ -16,39 +16,27 @@
 
 <body>
 
-
-
-    <div class="showcase" id="showcaseOne">
-        <p class="txtShowcase" id="txtShowcaseOne">
-            <video width="400" height="250" controls>
-                <source src="http://localhost:3000/uploads/spongebob.mp4" type="video/mp4">
-            </video>
-        </p>
-          
-    </div>
+    <div id="videoContainer">
+        <script>
+            fetch('http://localhost:3000/videos')
+                .then(response => response.json())
+                .then(videos => {
+                    const container = document.getElementById('videoContainer');
+                    videos.forEach(video => {
+                        const videoElement = document.createElement('video');
+                        videoElement.classList.add('video'); 
+                        videoElement.controls = true;
     
-    <div class="showcase" id="showcaseTwo">
-        <p class="txtShowcase" id="txtShowcaseTwo">
-            <video width="400" height="250" controls>
-                <source src="C:\Users\Zinte\OneDrive\Desktop\Videos\spongebob.mp4" type="video/mp4">
-            </video> 
-        </p>  
-    </div>
-
-    <div class="showcase" id="showcaseThree">
-        <p class="txtShowcase" id="txtShowcaseThree">
-            <video width="400" height="250" controls>
-                <source src="C:\Users\Zinte\OneDrive\Desktop\Videos\spongebob.mp4" type="video/mp4">
-            </video> 
-        </p>  
-    </div>
-
-    <div class="showcase" id="showcaseFour">
-        <p class="txtShowcase" id="txtShowcaseFour">
-            <video width="400" height="250" controls>
-                <source src="C:\Users\Zinte\OneDrive\Desktop\Videos\spongebob.mp4" type="video/mp4">
-            </video> 
-        </p>  
+                        const source = document.createElement('source');
+                        source.src = `http://localhost:3000${video.filePath}`;
+                        source.type = 'video/mp4';
+    
+                        videoElement.appendChild(source);
+                        container.appendChild(videoElement);
+                    });
+                })
+                .catch(error => console.error('Error loading videos:', error));
+        </script>
     </div>
 
 </body>

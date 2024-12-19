@@ -35,6 +35,20 @@ body{
     border-color:beige;
     
 }
+
+#videoContainer{
+    width: 450px;
+    height: 450px;
+
+
+}
+.video{
+    width: 400px;
+    height: 400px;
+    margin-top: 20px;
+    
+
+}
 #btnUpload{
     font-size:20px;
     width: 200px;
@@ -43,6 +57,7 @@ body{
     font-family:'Poppins', 'Roboto', 'sans-serif';
     background-color:rgb(34, 34, 34);
     border-color:rgb(42, 42, 42);
+    
     
 }
 #btnBackToHomepage{
@@ -73,20 +88,5 @@ body{
     
 }
 
-.showcase{ 
-    border: 3px solid rgb(34, 34, 34);
-    margin-top: 50px;
-    display: flex;
-    flex-direction: row;
-    width: 400px;
-    height: 300px;
 
-}
-
-
-.txtShowcase{
-    font-size: 20px;
-    text-align: auto;
-    
-}
   

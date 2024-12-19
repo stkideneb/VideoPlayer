@@ -13,32 +13,26 @@ function dropHandler(event) {
     }
 
     const file = files[0];
-    const fileName = file.name;
-    const filePath = `C:/Users/Zinte/OneDrive/Desktop/Videos/${fileName}`;
+    const formData = new FormData();
+    formData.append('file', file);
 
-    const queryData = { fileName, filePath };
-
-    console.log('Sending data to server:', queryData);
-
-    // HTTP-Anfrage an den Server senden
     fetch('http://localhost:3000/upload', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(queryData), // Sende die Daten im JSON-Format
+        body: formData,
     })
     .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
         alert('File uploaded successfully');
+        window.location.href = 'index.html'; // Zurück zur Homepage
     })
     .catch((error) => {
         console.error('Error:', error);
         alert('Error uploading file');
     });
-
-    document.getElementById("dropBox").addEventListener('dragleave', function() {
-        document.getElementById("dropBox").style.backgroundColor = 'rgb(23, 23, 23)';
-    });
 }
+
+document.getElementById("dropBox").addEventListener('dragleave', function() {
+    document.getElementById("dropBox").style.backgroundColor = 'rgb(23, 23, 23)';
+});
+
