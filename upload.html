@@ -10,14 +10,24 @@
 
 <header>
     <h2 id="uploadHeadline">Upload your Video</h2>
-    <a href="index.html" >
-        <button id="btnBackToHomepage">Back to Homepage</button>
-    </a>   
 </header>
 
-<body>  
+<body id="uploadBody">  
+
+    <div id="leftSideBar">
+        <a href="index.html" >
+            <img id="btnBackToHomepage" src="images/homePage.png" alt="homepageImage">
+        </a>
+    </div>
+    <div id="rightSideBar"></div>
     <div id="dropBox" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
     <p id="txtDropBox">Drop file here.</p>
     </div>
+    
+
+
 </body>
+
+<footer></footer>
+
 </html>

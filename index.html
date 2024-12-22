@@ -8,14 +8,19 @@
 </head>
 
 <header>
-    <h2 id="homepageHeadline">Homepage</h2>
-    <a href= "upload.html">
-        <button  id="btnUpload">Upload</button>
-    </a>
+    <h2 id="homepageHeadline" >Homepage</h2>
 </header>
 
-<body>
+<body id="homepageBody">
+    
+    <div id="leftSideBar">
+        <a href= "upload.html">
+            <img id="btnUpload" src="images/Upload.png" alt="uploadImage">
+        </a>
+    </div>
 
+    <div id="rightSideBar"></div>
+    
     <div id="videoContainer">
         <script>
             fetch('http://localhost:3000/videos')
@@ -40,5 +45,10 @@
     </div>
 
 </body>
+
+<footer>
+
+</footer>
+
 
 </html>
