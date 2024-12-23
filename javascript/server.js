@@ -7,6 +7,12 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+const corsOptions = {
+  origin: 'http://192.168.178.30:5500', // Erlaubtes Frontend
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+};
+
 app.use(cors());
 app.use(express.json());
 
@@ -22,7 +28,7 @@ const pool = mysql.createPool({
 // wäre dieser nicht gesetzt würden die Datein im Arbeitsspeicher gespeichert werden (flüchtig)
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, 'uploads'));
+    cb(null, 'C:/Users/Zinte/OneDrive/Desktop/uploads');
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + path.extname(file.originalname)); //Zeitstempel als Namen, um redundanz der Namen vorzubeugen
@@ -61,8 +67,8 @@ app.get('/videos', (req, res) => {
   });
 });
 
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static('C:/Users/Zinte/OneDrive/Desktop/uploads'));
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server läuft unter http://192.168.178.30:${port}`);
 });

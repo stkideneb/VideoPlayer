@@ -16,7 +16,7 @@ function dropHandler(event) {
     const formData = new FormData();
     formData.append('file', file);
 
-    fetch('http://localhost:3000/upload', {
+    fetch('http://192.168.178.30:3000/upload', {
         method: 'POST',
         body: formData,
     })

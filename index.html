@@ -8,11 +8,14 @@
 </head>
 
 <header>
+    <link rel="icon" href="/favicon.ico" type="images/Upload.png">
     <h2 id="homepageHeadline" >Homepage</h2>
 </header>
 
 <body id="homepageBody">
     
+
+
     <div id="leftSideBar">
         <a href= "upload.html">
             <img id="btnUpload" src="images/Upload.png" alt="uploadImage">
@@ -23,7 +26,7 @@
     
     <div id="videoContainer">
         <script>
-            fetch('http://localhost:3000/videos')
+            fetch('http://192.168.178.30:3000/videos')
                 .then(response => response.json())
                 .then(videos => {
                     const container = document.getElementById('videoContainer');
@@ -33,7 +36,7 @@
                         videoElement.controls = true;
     
                         const source = document.createElement('source');
-                        source.src = `http://localhost:3000${video.filePath}`;
+                        source.src = `http://192.168.178.30:3000${video.filePath}`;
                         source.type = 'video/mp4';
     
                         videoElement.appendChild(source);
