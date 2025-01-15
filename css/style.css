@@ -163,8 +163,19 @@ header{
     flex-direction: column;
     padding: 6px;
 }
-#loginBody{
-    
+.SignupBox{
+    background-color:rgb(155, 151, 151);
+    border-style: solid;
+    border-color: black;
+    border-radius: 4px;
+    width: 400px;
+    height: 600px;
+    justify-content: left;
+    align-items: left;
+    font-size: 25px;
+    display:flex;
+    flex-direction: column;
+    padding: 6px;
 }
 #inputUsername{
     margin-top: 1%;
@@ -176,11 +187,10 @@ header{
     margin-bottom: 5%;
     font-size: 20px;
 }
-#lblUsername{
-
-}
-#lblPassword{
-    
+#inputConfirmPassword{
+    margin-top: 1%;
+    margin-bottom: 5%;
+    font-size: 20px;
 }
 #LoginHeadline{
     font-size: 50px;
@@ -196,11 +206,27 @@ header{
 #btnSignUp{
     background-color: rgb(164, 87, 87);
     border-color:rgb(12, 12, 12);
+    border-width: 3px;
     border-style: solid;
-    border-radius: 3px;
-    width: 100px;
-    height: 20px;
-    margin-left: 10%;
+    border-radius: 4px;
+    width: 200px;
+    height: 40px;
+}
+#lblSignUp{
+    font-size: 150%;
+}
+
+#btnBackToLogin{
+    background-color: rgb(164, 87, 87);
+    border-color:rgb(12, 12, 12);
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 4px;
+    width: 200px;
+    height: 40px;
+}
+#lblBackToLogin{
+    font-size: 150%;
 }
 #btnSubmit:hover{
     transform: scale(1.02);
@@ -220,4 +246,30 @@ header{
     border-radius: 5px;
     border-width: 3px;
     width: 50px;
+}
+#loginBackToHomepage:hover{
+    transform: scale(1.02);
+    border-color: rgb(5, 5, 5);
+}
+#btnSignupBackToHomepage{
+    background-color:rgb(71, 71, 71);
+    border-color: rgb(12, 12, 12);
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 3px;
+    width: 50px;
+}
+#btnSignupBackToHomepage:hover{
+    transform: scale(1.02);
+    border-color: rgb(5, 5, 5);
+}
+#bottomLogin{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#bottomSignup{
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

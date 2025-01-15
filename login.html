@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="javascript/login.js" defer></script>
     <title>Login</title>
 </head>
 
 <body>
     
-<div class="flexContainer">
+<form class="flexContainer" onsubmit="submitHandler(event)" >
     <div>
         <h1 id="LoginHeadline">User Login</h1>
     </div>
@@ -31,17 +32,20 @@
             <button id="btnSubmit" type="submit">
                 <label id="lblSubmit">submit</label>
             </button>
-            <button id="btnSignUp" type="submit">
-                <label id="lblSignUp">SignUp</label>
-            </button>
         </div>
         
     </div>
-    <div>
-        <a href="index.html">
-            <img id="loginBackToHomepage" src="images/Homepage.png" alt="HomepageImage">
-        </a>
-    </div>
+</form>
+
+<div class="flexContainer" id="bottomLogin">
+    <a href="index.html">
+        <img id="loginBackToHomepage" src="images/Homepage.png" alt="HomepageImage">
+    </a>    
+    <a href="signup.html">
+        <button id="btnSignUp">
+            <label id="lblSignUp">SignUp</label>
+        </button>
+    </a>
 </div>
 
     

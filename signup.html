@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="javascript/signup.js" defer></script>
+    <title>Signup</title>
+</head>
+<body>
+    <form class="flexContainer" onsubmit="signupHandler(event)">
+        <div>
+            <h1>SIGN UP</h1>
+        </div>
+        <div class="SignupBox">
+            <div>
+                <label id="lblUsername">username</label>
+            </div>
+            <div>
+                <input type="text" id="inputUsername" name="username">
+            </div>
+            <div> 
+                <label id="lblPassword">password</label>
+            </div>
+            <div>
+                <input type="text" id="inputPassword" name="password">
+            </div>
+            <div>
+                <label id="lblConfirmPassword">confirm password</label>
+            </div>
+            <div>
+                <input type="text" id="inputConfirmPassword" name="confirmPassword">
+            </div>
+            <div>
+                <button id="btnSubmit">submit</button>
+            </div>
+        </div>
+    </form>
+    <div class="flexContainer" id="bottomSignup">
+        <a href="index.html">
+            <img id="btnSignupBackToHomepage" src="images/Homepage.png" alt="HomepageImage">
+        </a>
+        <a href="login.html">
+            <button id="btnBackToLogin">
+                <label id="lblBackToLogin">Login</label>
+            </button>
+        </a>
+    </div>
+
+</body>
+</html>
